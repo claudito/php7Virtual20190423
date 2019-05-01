@@ -22,3 +22,11 @@ INSERT INTO usuario(nombres,apellidos,celular,correo) VALUES
 SELECT * FROM usuario;
 SELECT id,nombres,apellidos,celular,correo FROM usuario;
 
+
+
+#limpiar datos de la tabla
+TRUNCATE TABLE usuario;
+
+#Delete
+DELETE FROM usuario WHERE id=1;
+
