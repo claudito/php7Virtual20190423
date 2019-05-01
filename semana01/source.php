@@ -26,7 +26,9 @@ $datos     =  array(
   
 );
 
-var_dump($datos);
+//var_dump($datos);
+
+echo json_encode($datos);
 
 
  ?>

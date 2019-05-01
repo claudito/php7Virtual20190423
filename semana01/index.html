@@ -9,9 +9,44 @@
 </head>
 <body>
 	
-<h1>Semana 01</h1> <hr>
+<h1>Mis Datos</h1> <hr>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id voluptate eaque mollitia, quasi sapiente adipisci explicabo assumenda ab tempora quisquam nisi sunt quibusdam ipsa cupiditate autem hic atque. Assumenda, nesciunt.
+ <!--
+<ul>
+
+<li>Nombres: Luis Augusto</li>
+<li>Apellidos: Claudio Ponce</li>
+
+</ul> -->
+
+<ul class="lista">
+</ul>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+
+<script>
+	
+lista = "";
+
+$.getJSON("source.php",{},function (data){
+
+lista += "<li>Nombres: "+data.nombres+"</li>";
+
+lista += "<li>Apellidos: "+data.apellidos+"</li>";
+
+lista += "<li>Celular: "+data.celular+"</li>";
+
+lista += "<li>Correo: "+data.correo+"</li>";
+
+$(".lista").html(lista);
+
+});
+
+
+</script>
+
 
 </body>
 </html>
