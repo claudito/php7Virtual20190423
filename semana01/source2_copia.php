@@ -28,22 +28,6 @@ PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES UTF8'
 //Activar los errores o excepciones
 $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-//Crear Consulta
-$query = "SELECT * FROM usuario WHERE id=2";
-
-//Creación de la sentencia Preparada
-$statement = $conexion->prepare($query);
-
-//Ejecutamos la consulta
-$statement->execute();
-
-//Array de Datos
-$result = $statement->fetch(PDO::FETCH_ASSOC);
-
-//var_dump($result);
-
-//Crear el array JSON
-echo json_encode($result);
 
 	
 } catch (Exception $e) {
