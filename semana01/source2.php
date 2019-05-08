@@ -29,7 +29,7 @@ PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES UTF8'
 $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 //Crear Consulta
-$query = "SELECT * FROM usuario WHERE id=2";
+$query = "SELECT id,nombres,apellidos,celular,correo FROM usuario WHERE id=1";
 
 //Creación de la sentencia Preparada
 $statement = $conexion->prepare($query);
