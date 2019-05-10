@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+
+<!-- Formulario -->
+
+<!-- 
+Años Atrás
+
+method = POST, GET
+
+action = pagina o ruta donde se enviaba la información (inputs)
+
+<form method="POST" action="registro.php"  autocomplete="off">
+	
+</form>
+ -->
+
+<form id="registro" autocomplete="off">
+	
+<label>Nombres</label>
+<input type="text" name="nombres" required>
+
+<br>
+
+<label>Apellidos</label>
+<input type="text" name="apellidos" required>
+
+<br>
+
+<label>Edad</label>
+<input type="number" name="edad" required 
+ min="18" max="60">
+
+<br>
+
+<label >Talla</label>
+<input type="number" name="talla" required step="any">
+
+<br>
+
+<label>Fecha</label>
+<input type="date" name="fecha" required>
+
+<br>
+
+<label>Hora</label>
+<input type="time" name="hora" required>
+
+<br>
+
+<button>Enviar</button>
+
+
+
+
+</form>
+
+<div id="mensaje"></div>
+
+
+<!-- Importar Jquery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+	
+$(document).on('submit','#registro',function (e){
+
+ parametros = $(this).serialize();
+
+ //ajax
+ $.ajax({
+
+  url:"source.php",
+  type:"POST",
+  data:parametros,
+  beforeSend:function(){
+
+  $('#mensaje').html('Cargando...');
+
+  },
+  success:function(data){
+
+  $('#mensaje').html(data);
+
+
+  }
+
+ });
+
+
+
+
+
+e.preventDefault();
+});
+
+
+
+</script>
+
+	
+</body>
+</html>
