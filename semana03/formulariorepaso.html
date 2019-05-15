@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Formulario</title>
+</head>
+<body>
+	
+<form id="registro">
+
+<label>Lenguaje de Programación:</label>
+<select name="lenguajes" required>
+	
+<option value="">Seleccionar</option>
+<option value="1" >PHP</option>
+<option value="2" >Java Script</option>
+<option value="3" selected>Java</option>
+
+</select>
+
+<br>
+
+<label>Turno:</label>
+
+<input type="radio" name="turno"  value="M" required checked> Mañana
+<input type="radio" name="turno"  value="T" required> Tarde
+<input type="radio" name="turno"  value="N" required> Noche
+
+<br>
+
+<label>Sistemas Operativos:</label>
+
+<input type="checkbox" name="so[]" value="1">Ubuntu
+<input type="checkbox" name="so[]" value="2">Centos
+<input type="checkbox" name="so[]" value="3" checked>Fedora
+<input type="checkbox" name="so[]" value="4">Windows
+
+<br>
+
+<label >Comentario</label>
+<textarea name="comentario"  cols="50" rows="3" required></textarea>
+
+
+
+<br>
+
+<button>Enviar</button>
+
+
+</form>
+
+<div id="mensaje"></div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+	
+$(document).on('submit','#registro',function(e){
+
+ parametros = $(this).serialize();
+
+ //ajax
+ $.ajax({
+ 
+ url:"source.php",
+ type:"POST",
+ data:parametros,
+ beforeSend:function(){
+
+$('#mensaje').html('Cargando...');
+
+
+ },
+ success:function(data){
+  
+ $('#mensaje').html(data);
+
+
+ }
+
+
+
+
+
+
+
+ });
+
+
+
+
+e.preventDefault();
+});
+
+</script>
+
+</body>
+</html>
