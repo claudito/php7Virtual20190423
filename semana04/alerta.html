@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Alertas/Mensajes Bootstrap 4</title>
+
+ <!-- Css Bootstrap -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+
+ <!-- Js Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+
+<!-- Sweet Alert 1.1.3 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+	
+<div class="row">
+	
+<div class="col-md-12">
+
+
+<script>
+
+/*
+type: succes,info,warning,error
+
+*/
+
+//Mensaje de Confirmación
+/*
+swal({
+
+title:"Buen Trabajo",
+text : "Registro Insertado",
+type : "success",
+timer: 5000,
+showConfirmButton:false
+
+});
+*/
+
+//Mensaje de Carga de datos
+
+/*
+swal({
+
+
+title  : "Cargando",
+imageUrl:"img/loader2.gif",
+text   : "Espere un momento, no cierre la ventana",
+showConfirmButton :false
+
+
+
+});*/
+
+
+//Confirmación de la eliminación
+
+/*
+
+swal({
+  title: "¿Estás Seguro?",
+  text: "El Registro se eliminará de forma permanente.",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Si, estoy seguro",
+  cancelButtonText : "Cancelar",
+  closeOnConfirm: false
+},
+function(){
+  
+ swal({
+
+  title  : "Buen Trabajo",
+  text   : "Registro Eliminado",
+  type   : "success",
+  timer   : 2000,
+  showConfirmButton :false
+
+ });
+
+
+});
+
+*/
+
+//Asignar valores a Sweet Alert(Alerta)
+swal({
+  title: "¿Estás Seguro?",
+  text: "El Registro se eliminará de forma permanente.",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Si, estoy seguro",
+  cancelButtonText : "Cancelar",
+  closeOnConfirm: false
+},
+function(){
+  
+$.getJSON('source.php',{},function (data){
+
+swal({
+
+title : data.title,
+text  : data.text,
+type  : data.type,
+//timer   : 3000,
+showConfirmButton :false
+
+});
+
+
+
+});
+
+
+
+});
+
+
+</script>
+
+
+	
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+	
+</body>
+</html>
